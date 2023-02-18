@@ -1,7 +1,9 @@
-export const QuestionBlock = () => {
+const QuestionBlock = () => {
     return (
         <div>
 
         </div>
     );
 }
+
+export default QuestionBlock;

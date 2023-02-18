@@ -1,7 +1,10 @@
-export const Title = () => {
+const Title = () => {
     return (
         <div>
+            <p>test</p>
 
         </div>
     );
 }
+
+export default Title;

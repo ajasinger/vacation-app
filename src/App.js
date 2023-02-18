@@ -8,6 +8,7 @@ import AnswerBlock from './components/AnswerBlock';
 const App = () => {
   return (
     <div>
+      <Title />
     
     </div>
   );
