@@ -4,22 +4,31 @@ This React app is a quiz to help choose your next vacation destination.
 
 ## Project Description
 
-My goal with this project was to practice various React (??, hooks etc.)
+My goal with this project was to practice various ?? in React including components, hooks ???
 
 I installed npx create-react-app to build from and ????? from there.
 
 The ??? in wrote include: 
 
+### App Framework
+
+The components are: 
+1. A title
+2. A questions component to hold all the multiple choice questions
+3. Individual multiple choice question compnents
+3. A results component 
+
+## Project Challenges
 
 A few challenges I faced were: 
 
-### `npm start`
+### `export function`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I initally exported my functions using 
+`export const QuestionsBlock = () => {
+}`
+but learned the the it must be exported  as a defualt function.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
