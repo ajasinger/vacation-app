@@ -1,119 +1,122 @@
 {
-    "title" : "Where should you go on vacation?",
-    "subtitle": "Need some inspiration for your next trip? Our quiz can help!",
-    "content" : [
-        {
-            "id": 0,
-            "text": "Pick your favorite type of location:",
-            "questions": [
-                { 
-                    "text": "The beach",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "The mountains",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "The city",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "The desert",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "text": "Pick your favorite meal:",
-            "questions": [
-                { 
-                    "text": "Spaghetti",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "Sushi",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "Steak",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "Pizza",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "text": "You like to spend time:",
-            "questions": [
-                { 
-                    "text": "Hiking",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "At museums",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "Wine tasting",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                },
-                { 
-                    "text": "Adventure-seeking",
-                    "image": "ADD IMAGE", 
-                    "alt": "test",
-                    "credit": "name"
-                }
-            ]
-        }
-    ],
-    "answers": [
-        {
-            "combination": ["The city", "Pizza", "Wine tasting"],
-            "text": "New York",
-            "image": "ADD IMAGE",
-            "alt": "test",
-            "credit": "name"
-        },
-        {
-            "combination": ["The beach", "Steak", "Adventure-seeking"],
-            "text": "New York",
-            "image": "ADD IMAGE",
-            "alt": "test",
-            "credit": "name"
-        },
-        {
-            "combination": ["The mountiains", "Sushi", "Adventure-seeking"],
-            "text": "Aspen",
-            "image": "ADD IMAGE",
-            "alt": "test",
-            "credit": "name"
-        }
-    ]
+    "quiz": {
+        "title" : "Where should you go on vacation?",
+        "subtitle": "Need some inspiration for your next trip? Our quiz can help!",
+        "content" : [
+            {
+                "id": 0,
+                "text": "Pick your favorite type of location:",
+                "questions": [
+                    { 
+                        "text": "The beach",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "The mountains",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "The city",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "The desert",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "text": "Pick your favorite meal:",
+                "questions": [
+                    { 
+                        "text": "Spaghetti",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "Sushi",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "Steak",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "Pizza",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "text": "You like to spend time:",
+                "questions": [
+                    { 
+                        "text": "Hiking",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "At museums",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "Wine tasting",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    },
+                    { 
+                        "text": "Adventure-seeking",
+                        "image": "ADD IMAGE", 
+                        "alt": "test",
+                        "credit": "name"
+                    }
+                ]
+            }
+        ],
+        "answers": [
+            {
+                "combination": ["The city", "Pizza", "Wine tasting"],
+                "text": "New York",
+                "image": "ADD IMAGE",
+                "alt": "test",
+                "credit": "name"
+            },
+            {
+                "combination": ["The beach", "Steak", "Adventure-seeking"],
+                "text": "New York",
+                "image": "ADD IMAGE",
+                "alt": "test",
+                "credit": "name"
+            },
+            {
+                "combination": ["The mountiains", "Sushi", "Adventure-seeking"],
+                "text": "Aspen",
+                "image": "ADD IMAGE",
+                "alt": "test",
+                "credit": "name"
+            }
+        ]
+    }
 }
+   
