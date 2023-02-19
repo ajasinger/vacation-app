@@ -32,8 +32,15 @@ const App = () => {
 
   return (
     <div className="app">
+      
+      {/* pass props title and subtitle to Title component */}
       <Title title={quiz.title} subtitle={quiz.subtitle}/>
       {/* <Title title={quiz?.title} subtitle={quiz?.subtitle}/> */}
+      
+      {/* map quiz content to populate QuestionsBlock */}
+      {quiz.content.map(contentItem => 
+        <QuestionsBlock quizItem={contentItem}/>
+        )}
     
     </div>
   );
