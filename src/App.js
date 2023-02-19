@@ -38,9 +38,9 @@ const App = () => {
       {/* <Title title={quiz?.title} subtitle={quiz?.subtitle}/> */}
       
       {/* map quiz content to populate QuestionsBlock */}
-      {quiz.content.map(contentItem => 
+      {quiz.content.map(contentItem => {
         <QuestionsBlock quizItem={contentItem}/>
-        )}
+      })}
     
     </div>
   );
