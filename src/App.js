@@ -31,7 +31,7 @@ const App = () => {
   console.log(quiz);
 
   return (
-    <div>
+    <div className="app">
       <Title title={quiz.title} subtitle={quiz.subtitle}/>
       {/* <Title title={quiz?.title} subtitle={quiz?.subtitle}/> */}
     
