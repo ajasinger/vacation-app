@@ -16,7 +16,7 @@ const App = () => {
     try {
       const response = await fetch('http://localhost:8000/quiz');
       const json = await response.json();
-      console.log(json)
+      //console.log(json) (check json displays in console)
       setQuiz(json);
     } catch(err) {
       console.log(err);
@@ -27,6 +27,8 @@ const App = () => {
   useEffect(() => {
     fetchData();
   }, [])
+
+  console.log(quiz);
 
   return (
     <div>
