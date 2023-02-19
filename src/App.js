@@ -1,7 +1,6 @@
 //import logo from './logo.svg';
 //import './App.css';
 import Title from './components/TitleBlock';
-import QuestionBlock from './components/QuestionBlock';
 import QuestionsBlock from './components/QuestionsBlock';
 import AnswerBlock from './components/AnswerBlock';
 import {useState, useEffect} from 'react';
@@ -9,7 +8,7 @@ import {useState, useEffect} from 'react';
 const App = () => {
 
   //set State to json response
-  const [quiz, setQuiz] = useState(false);
+  const [quiz, setQuiz] = useState(null);
 
   //async function to get json object
   const fetchData = async () => {
