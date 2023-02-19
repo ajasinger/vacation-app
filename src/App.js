@@ -39,9 +39,9 @@ const App = () => {
       
       {/* map quiz content to populate QuestionsBlock */}
       {/* add key to items*/}
-      {quiz && quiz.content.map((contentItem, _index) => {
+      {quiz && quiz.content.map((contentItem) => {
         <QuestionsBlock 
-          key={_index}
+          key={contentItem.id}
           quizItem={contentItem}
         />
       })}
