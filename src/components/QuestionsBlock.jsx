@@ -1,10 +1,11 @@
 const QuestionsBlock = ({quizItem}) => {
-    console.log(quizItem);
+    // console.log(quizItem);
+    
     return (
-        <div>
-
-        </div>
-    );
+        <>
+            <h2>{quizItem.text}</h2>
+        </>
+    )
 }
 
 export default QuestionsBlock;
