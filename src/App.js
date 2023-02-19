@@ -8,8 +8,10 @@ import {useState, useEffect} from 'react';
 
 const App = () => {
 
+  //set State to json response
   const [quiz, setQuiz] = useState(false);
 
+  //async function to get json object
   const fetchData = async () => {
     try {
       const response = await fetch('http://localhost:8000/quiz');
@@ -20,6 +22,11 @@ const App = () => {
       console.log(err);
     }
   }
+
+  //run fetch data until it returns json object on only first render
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   return (
     <div>
