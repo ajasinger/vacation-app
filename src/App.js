@@ -4,6 +4,7 @@ import Title from './components/TitleBlock';
 import QuestionBlock from './components/QuestionBlock';
 import QuestionsBlock from './components/QuestionsBlock';
 import AnswerBlock from './components/AnswerBlock';
+import {useState, useEffect} from 'react';
 
 const App = () => {
   return (
