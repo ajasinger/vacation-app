@@ -1,8 +1,8 @@
-const Title = () => {
+const Title = ({title, subtitle}) => {
     return (
         <div>
-            <p>test</p>
-
+            <h1>{title}</h1>
+            <h3>{subtitle}</h3>
         </div>
     );
 }
