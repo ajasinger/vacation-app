@@ -56,6 +56,7 @@ Return a div with in h1 tag of {title} and a p tag of {subtitle}
 Pass destructured props into QuestionsBlock component 
 Return a div with in h1 tag of {title} and a p tag of {subtitle} 
 Display question titles with h1 tag of {quizItem.text}
+Add id to each question text to scroll to each question
 
 ## Project Challenges
 
