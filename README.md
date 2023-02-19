@@ -39,7 +39,15 @@ using setQuiz(json) to override false from useState(false) which had been set to
 ie state is initilaized to equal false, when teh state setter (setQuiz) is called react uses the new value (json)
 
 ### useEffect()
-call useEffect() where first argument is callback function we want react to call each time the component renders 
+call useEffect() where first argument is callback function (a function passed into another function as an argument) we want react to call each time the component renders, however  second argument of empty array [] (dependency array) means it's only called on first render unless something int eh dependaeny array changes.
+
+### App.js return statement
+Feed title and subtitle into title component as JSX
+
+### TitleBlock
+Pass props into title component 
+Destructure props
+Return a div with in h1 tag of {title} and a p tag of {subtitle} 
 
 
 ## Project Challenges
