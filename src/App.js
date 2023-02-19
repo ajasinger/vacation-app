@@ -13,8 +13,11 @@ const App = () => {
   const fetchData = async () => {
     try {
       const response = await fetch('http://localhost:8000/quiz');
-      const json = response.json();
+      const json = await response.json();
+      console.log(json)
       setQuiz(json);
+    } catch(err) {
+      console.log(err);
     }
   }
 
