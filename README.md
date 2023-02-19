@@ -42,13 +42,20 @@ ie state is initilaized to equal false, when teh state setter (setQuiz) is calle
 call useEffect() where first argument is callback function (a function passed into another function as an argument) we want react to call each time the component renders, however  second argument of empty array [] (dependency array) means it's only called on first render unless something int eh dependaeny array changes.
 
 ### App.js return statement
-Feed title and subtitle into title component as JSX
+1. Feed title and subtitle props into title element as JSX
+2. Map quiz.content array to render data (as contentItem) to QuestionBlocks
+3. Pass in quizItem prop to <QuestionsBlock/> element
+4. Add key to <QuestionsBlock/> element to keep track of items between renders, so mapped items remain in the same order
 
 ### TitleBlock
 Pass props into title component 
 Destructure props
 Return a div with in h1 tag of {title} and a p tag of {subtitle} 
 
+### QuestionsBlock
+Pass destructured props into QuestionsBlock component 
+Return a div with in h1 tag of {title} and a p tag of {subtitle} 
+Display question titles with h1 tag of {quizItem.text}
 
 ## Project Challenges
 
@@ -73,11 +80,20 @@ can now view JSON at http://localhost:8000/quiz
 
 
 
-### `npm run build`
+### `mapping quiz.content`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+{/* map quiz content to populate QuestionsBlock */}
+      {quiz.content.map(contentItem => 
+        <QuestionsBlock quizItem={contentItem}/>
+        )}
+thought I needed to separate out each item???
 
+ALSO 
+
+{quiz && quiz.content.map(contentItem => {
+        <QuestionsBlock quizItem={contentItem}/>
+      })}
+needed to specify conditional (`quiz &&`) so that it is only maping when quiz exists (when promise is returned from async function so quiz is no longer false)
 
 ## Conclusion ???
 

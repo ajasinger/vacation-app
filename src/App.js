@@ -38,8 +38,12 @@ const App = () => {
       {/* <Title title={quiz?.title} subtitle={quiz?.subtitle}/> */}
       
       {/* map quiz content to populate QuestionsBlock */}
-      {quiz && quiz.content.map(contentItem => {
-        <QuestionsBlock quizItem={contentItem}/>
+      {/* add key to items*/}
+      {quiz && quiz.content.map((contentItem, _index) => {
+        <QuestionsBlock 
+          key={_index}
+          quizItem={contentItem}
+        />
       })}
     
     </div>
