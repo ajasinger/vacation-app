@@ -69,6 +69,7 @@ Return button containing clickable image, text,and linked image credit
 use tabIndex so user can't use tab inside of button 
 
 ### CreateContext
+(reference https://www.w3schools.com/react/react_usecontext.asp)
 allows us to pass down and use data in any component without using props. Providing component (provider) passes variable (answers-- an empty array) down the chain so it is accessible to all children
 
 Then import QuizContext into App.js, define state {answers, setAnswers} and wrap return statement in <QuizContext.Provider> passing in props answers, setAnswers
