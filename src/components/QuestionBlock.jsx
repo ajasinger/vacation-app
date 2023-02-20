@@ -1,8 +1,8 @@
 const QuestionBlock = ({question}) => {
     //Next steps?
-    const handleClick = () => {
-        setChosenAnswerItems((prevState) => [...prevState, question.text])
-    }
+    //const handleClick = () => {
+    //    setChosenAnswerItems((prevState) => [...prevState, question.text])
+    //}
 
     return (
         // make entire question option a button containing image, text, links 
