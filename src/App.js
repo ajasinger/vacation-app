@@ -3,12 +3,15 @@
 import Title from './components/TitleBlock';
 import QuestionsBlock from './components/QuestionsBlock';
 import AnswerBlock from './components/AnswerBlock';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import QuizContext from './QuizContext';
 
 const App = () => {
 
   //set State to json response
   const [quiz, setQuiz] = useState(null);
+  //set State for QuizContext
+  const [answers, setAnswers] = useState({});
 
 
   //async function to get json object
@@ -31,7 +34,9 @@ const App = () => {
   console.log(quiz);
 
   return (
-    <div className="app">
+    //wrap return in QuizContext component so all children have access to answer object
+    <QuizContext.Provider value={{ answers, setAnswers }}>
+      <div className="app">
       
       {/* pass props title and subtitle to Title component */}
       {/* optional chaining so if it quiz doesn't evaluate it returns undefined */}
@@ -47,6 +52,7 @@ const App = () => {
       ))}
     
     </div>
+    </QuizContext.Provider>
   );
 }
 
