@@ -66,6 +66,11 @@ p {
     padding: 0;
 }
 
+.question-block img {
+    width: 300px;
+    height: 200px;
+}
+
 .question-block p {
     font-size: 11px;
     font-style: italic;
