@@ -7,11 +7,10 @@ import {useState, useEffect} from 'react';
 
 const App = () => {
 
-  //why is this false instead of null???????????????
   //set State to json response
-  const [quiz, setQuiz] = useState(false);
+  const [quiz, setQuiz] = useState(null);
   //set State to array of chosen answers 
-  const [chosenAnswerItems, setChosenAnswerItems] = useState(null);
+  //const [chosenAnswerItems, setChosenAnswerItems] = useState(null);
 
 
   //async function to get json object
@@ -37,12 +36,12 @@ const App = () => {
     <div className="app">
       
       {/* pass props title and subtitle to Title component */}
-      <Title title={quiz.title} subtitle={quiz.subtitle}/>
-      {/* <Title title={quiz?.title} subtitle={quiz?.subtitle}/> */}
+      {/* optional chaining so if it quiz doesn't evaluate it returns undefined */}
+      <Title title={quiz?.title} subtitle={quiz?.subtitle}/>
       
       {/* map quiz content to populate QuestionsBlock */}
       {/* add key to items*/}
-      {quiz && quiz.content.map((contentItem) => {
+      {quiz && quiz?.content.map((contentItem) => {
         <QuestionsBlock 
           key={contentItem.id}
           quizItem={contentItem}
