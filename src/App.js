@@ -8,7 +8,7 @@ import {useState, useEffect} from 'react';
 const App = () => {
 
   //set State to json response
-  const [quiz, setQuiz] = useState(null);
+  const [quiz, setQuiz] = useState(false);
 
   //async function to get json object
   const fetchData = async () => {
