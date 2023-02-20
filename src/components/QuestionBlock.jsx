@@ -1,4 +1,8 @@
 const QuestionBlock = ({question}) => {
+    const handleClick = () => {
+        
+    }
+
     return (
         // make entire question option a button containing image, text, links 
         <button
