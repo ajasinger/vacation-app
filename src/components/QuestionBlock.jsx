@@ -1,4 +1,4 @@
-const QuestionBlock = ({question}) => {
+const QuestionBlock = ({id, question}) => {
 
     return (
         // make entire question option a button containing image, text, links 
@@ -8,7 +8,8 @@ const QuestionBlock = ({question}) => {
             <img src={question.image} alt={question.alt}/>
             <h3>{question.text}</h3>
             <p>
-                <a href="https://www.unsplash.com">{question.credit}</a>
+                {/* remove tabbing option inside of button with tabIndex */}
+                <a tabIndex="-1" href="https://www.unsplash.com">{question.credit}</a>
             </p>
         </button>
     );
