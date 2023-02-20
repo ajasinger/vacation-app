@@ -9,7 +9,7 @@ const QuestionsBlock = ({quizItem}) => {
             <div className="questions-container"></div>
             {/* map quizItem.question to display each question option */}
             {quizItem.questions.map((question, _index) => (
-                <QuestionBlock key={_index} question={question}/>
+                <QuestionBlock key={_index} question={question} id={quizItem.id}/>
             ))
             }
         </>
