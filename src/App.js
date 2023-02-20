@@ -9,8 +9,6 @@ const App = () => {
 
   //set State to json response
   const [quiz, setQuiz] = useState(null);
-  //set State to array of chosen answers 
-  //const [chosenAnswerItems, setChosenAnswerItems] = useState(null);
 
 
   //async function to get json object
