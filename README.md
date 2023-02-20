@@ -43,7 +43,8 @@ call useEffect() where first argument is callback function (a function passed in
 
 ### App.js return statement
 1. Feed title and subtitle props into title element as JSX
-2. Map quiz.content array to render data (as contentItem) to QuestionBlocks
+2. Map quiz.content array to render data (as contentItem) to QuestionBlocks. 
+3. Use Optional chaining — use the question mark before the period - add question mark if this thing dioesnt’ evaluate the return undefined — removes unneccsearry if statements so something happens
 3. Pass in quizItem prop to <QuestionsBlock/> element
 4. Add key to <QuestionsBlock/> element to keep track of items between renders, so mapped items remain in the same order
 5. set State to array of chosen answers 
@@ -109,8 +110,9 @@ needed to specify conditional (`quiz &&`) so that it is only maping when quiz ex
 
 ## Conclusion ???
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What's Next
+make site responsive 
+images responsive
 
 
