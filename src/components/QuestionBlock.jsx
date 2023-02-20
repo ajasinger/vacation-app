@@ -1,4 +1,10 @@
+import { useContext } from 'react';
+import QuizContext from "../QuizContext";
+
 const QuestionBlock = ({id, question}) => {
+
+    //define variable setAnswers 
+    const { setAnswers } = useContext(QuizContext);
 
     return (
         // make entire question option a button containing image, text, links 
