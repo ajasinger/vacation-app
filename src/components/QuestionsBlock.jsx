@@ -5,8 +5,6 @@ const QuestionsBlock = ({quizItem}) => {
     
     return (
         <>
-            {/* add id to scroll to each question */}
-            {/* why is this not displaying ?????????????????????? */}
             <h2 id={quizItem.id} className="question-title">{quizItem.text}</h2>
             <div className="questions-container"></div>
             {/* map quizItem.question to display each question option */}
