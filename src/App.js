@@ -7,8 +7,12 @@ import {useState, useEffect} from 'react';
 
 const App = () => {
 
+  //why is this false instead of null???????????????
   //set State to json response
   const [quiz, setQuiz] = useState(false);
+  //set State to array of chosen answers 
+  const [chosenAnswerItems, setChosenAnswerItems] = useState(null);
+
 
   //async function to get json object
   const fetchData = async () => {
