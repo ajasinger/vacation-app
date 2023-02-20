@@ -46,6 +46,7 @@ call useEffect() where first argument is callback function (a function passed in
 2. Map quiz.content array to render data (as contentItem) to QuestionBlocks
 3. Pass in quizItem prop to <QuestionsBlock/> element
 4. Add key to <QuestionsBlock/> element to keep track of items between renders, so mapped items remain in the same order
+5. set State to array of chosen answers 
 
 ### TitleBlock
 Pass props into title component 
@@ -57,6 +58,14 @@ Pass destructured props into QuestionsBlock component
 Return a div with in h1 tag of {title} and a p tag of {subtitle} 
 Display question titles with h1 tag of {quizItem.text}
 Add id to each question text to scroll to each question
+import QuestionBlock
+Map quizItem.question to display each question option
+Add key to mapped questions 
+
+### QuestionBlock
+Pass destructured props into QuestionsBlock component {question}
+Return button containing clickable image, text,and linked image credit
+
 
 ## Project Challenges
 
@@ -79,7 +88,9 @@ put JSON object as value on new object with teh key: "quiz"
 run command $npm run start:backend
 can now view JSON at http://localhost:8000/quiz
 
-
+### App.js useState() hook
+used null instead of false -- why didn't this work?
+const [quiz, setQuiz] = useState(false);
 
 ### `mapping quiz.content`
 
