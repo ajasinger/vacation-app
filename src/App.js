@@ -41,12 +41,12 @@ const App = () => {
       
       {/* map quiz content to populate QuestionsBlock */}
       {/* add key to items*/}
-      {quiz && quiz?.content.map((contentItem) => {
+      {quiz && quiz?.content.map((contentItem) => (
         <QuestionsBlock 
           key={contentItem.id}
           quizItem={contentItem}
         />
-      })}
+      ))}
     
     </div>
   );
