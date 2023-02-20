@@ -1,6 +1,7 @@
 const QuestionBlock = ({question}) => {
+    //Next steps?
     const handleClick = () => {
-        
+        setChosenAnswerItems((prevState) => [...prevState, question.text])
     }
 
     return (
