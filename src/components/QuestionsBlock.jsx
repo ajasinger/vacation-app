@@ -4,7 +4,7 @@ const QuestionsBlock = ({quizItem}) => {
     // console.log(quizItem);
     
     return (
-        <>
+        <div>
             <h2 id={quizItem.id} className="question-title">{quizItem.text}</h2>
             <div className="questions-container"></div>
             {/* map quizItem.question to display each question option */}
@@ -12,7 +12,7 @@ const QuestionsBlock = ({quizItem}) => {
                 <QuestionBlock key={_index} question={question} id={quizItem.id}/>
             ))
             }
-        </>
+        </div>
     )
 }
 
