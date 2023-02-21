@@ -30,7 +30,7 @@ The main components are:
 5. Call `useState` which gives us an array with 2 values: a) current state b) state setter. Using array destructuring we set them to `quiz` and `setQuiz()`
 6. Call `setQuiz()` on the JSON response to override `null` (the state is initalized to `null`, when the state setter `setQuiz()` is called react uses the new value `json`)
 
-### Ap.js `useEffect()`
+### App.js `useEffect()`
 1. Call `useEffect()` with 2 arguments: 
     a) a callback function (a function passed into another function as an argument) we want react to call each time the component renders, 
     b) a dependency array (anempty array []) so it's only called on first render unless something in the dependency array changes.
@@ -57,20 +57,27 @@ Return a <div> with an <h1> element of `{quizItem.text}` to display multiple cho
 3. set `tabIndex` to `"-1"` in <a> element so user can't tab inside of button 
 
 ### QuizContext
+#### Part 1 - App.js
 1. Import `{ createContext }` to `QuizContext` provider component to pass answer object (including `answers`and `setAnswers`) down the chain so it is accessible to all children
 2. Import `{ QuizContext }` into `App.js`
 3. Call `useState()` hook to set `{answers, setAnswers}`
 4. Wrap `App.js` `return` statement in <QuizContext.Provider> to pass down `answers` and `setAnswers()` as props to all children
+#### Part 2 - QuestionBlock.js
+1. Import `{ QuizContext }` into `QuestionBlock.jsx` to pass in `setAnswers` for `onClick` attribute
+2. Destructure `QuizContext` with `useEffect()` hook (`useContext()`) to pull out `setAnswers()`
+3. `onClick` `setAnswers()` is called and the new answer is added to existing `answers` object with an id
+### Part 3 - App.js `useEffect()`
+1. `answers` is passed to `App.js` by `QuizContext` for use in the `useEffect()` hook 
+2. Call `useEffect()` hook to `setTravelSuggestion` adn re-run when values in `quiz` or `answers` objects change
 
-1. setAnswers is declared in QuizContext and then wraps the return statement in App.js (essentially passed as props to <QuestionBlock />
-2. What exactly is happening here? const { setAnswers } = useContext(QuizContext);
-3. Then onClick setAnswers() is called and the new answer is added to existing answers object with an id
-4. Then answers is passed to App.js by QuizContext for use in the useEffect hook 
+?????
+
+3. If `quiz` does not exist, return
+4. Once `quiz` exists 
+
 
 ### useEffect() hook in App.js
-useEffect hook defines what a component needs to do after render. Second argument of array measn it only carries out that action if a prop or state has changed. Empty array means it only runs once, otherwise it runs if a prop or state has changed, in this case if the quiz or answers objects change 
-1. do not run useEffect until quiz returns 
-2. and run it again if the answers object changes 
+
 3. set variables to see when all 3 multiple choice questions have been answered:  
 //map content array for id's
     const questionIds = quiz.content.map((item) => item.id);
@@ -90,7 +97,7 @@ in app.js  if travelSuggestion is false (no travelSuggestion set) don't show Ans
 
 ## Project Learnings
 
-### importing JSON objects into App.js
+### Importing JSON objects into App.js
 
 This was my first experience with importing a JSON file into App.js. Here's how I did it: 
 
@@ -101,7 +108,7 @@ can now view JSON at http://localhost:8000/quiz
 
 I understand it should also work in the public folder, however,this isn't ideal for production builds. 
 
-### Learning Optional chaining `(?.)`
+### Learning Optional Chaining `(?.)`
 
 I initially didn't include the optional chaining operator and my code was throwing errors when I tried to `.map()` `quiz` before the promise returned.
 
@@ -111,7 +118,7 @@ A benefit of optional chaining, is reduces the number of if statements we need.
 
 reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
-### Learning CreateContext 
+### Learning `CreateContext` 
 (reference https://www.w3schools.com/react/react_usecontext.asp)
 allows us to pass down and use data in any component without using props. Providing component (provider) passes variable (answers-- an empty array) down the chain so it is accessible to all children
 
