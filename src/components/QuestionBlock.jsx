@@ -3,7 +3,7 @@ import QuizContext from "../QuizContext";
 
 const QuestionBlock = ({id, question}) => {
 
-    //destructure QuizContext to pull out setAnswers
+    //allows QuestionBlock to read QuizContext and use setAnswers as attribute 
     const { setAnswers } = useContext(QuizContext);
 
     return (
