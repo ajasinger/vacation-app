@@ -12,6 +12,8 @@ const App = () => {
   const [quiz, setQuiz] = useState(null);
   //set State for QuizContext
   const [answers, setAnswers] = useState({});
+  //set State for sortedSuggestions
+  const [travelSuggestion, setTravelSuggestion] = useState(null);
 
   console.log({
     quiz, 
@@ -29,6 +31,12 @@ const App = () => {
     //Object.keys converts answers object to an array
     //if length is greater than or equal to questionIds length set 
     const hasCompleted = Object.keys(answers).length >= questionIds.length;
+
+    if (!hasCompleted) {
+      return;
+    }
+
+    const scoredSuggestions = 
 
 
   }, [
