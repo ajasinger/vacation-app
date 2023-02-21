@@ -8,7 +8,6 @@ import QuizContext from './QuizContext';
 
 const App = () => {
 
-  //set State to json response
   const [quiz, setQuiz] = useState(null);
   //set State for QuizContext
   const [answers, setAnswers] = useState({});
@@ -83,31 +82,28 @@ const App = () => {
     try {
       const response = await fetch('http://localhost:8000/quiz');
       const json = await response.json();
-      //console.log(json) (check json displays in console)
+      //console.log(json) 
       setQuiz(json);
     } catch(err) {
       console.log(err);
     }
   }
 
-  //run fetch data until it returns json object on only first render
+  //run fetch data until it returns json object on first render or dependency array changes
   useEffect(() => {
     fetchData();
   }, [])
 
-  console.log(quiz);
+  //console.log(quiz);
 
   return (
     //wrap return in QuizContext component so all children have access to answer object
     <QuizContext.Provider value={{ answers, setAnswers }}>
       <div className="app">
       
-      {/* pass props title and subtitle to Title component */}
-      {/* optional chaining so if it quiz doesn't evaluate it returns undefined */}
       <Title title={quiz?.title} subtitle={quiz?.subtitle}/>
       
       {/* map quiz content to populate QuestionsBlock */}
-      {/* add key to items*/}
       {quiz && quiz?.content.map((contentItem) => (
         <QuestionsBlock 
           key={contentItem.id}
