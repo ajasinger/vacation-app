@@ -81,6 +81,8 @@ Then import QuizContext into App.js, define state {answers, setAnswers} and wrap
 
 ### useEffect() hook in App.js
 useEffect hook defines what a component needs to do after render. Second argument of array measn it only carries out that action if a prop or state has changed. Empty array means it only runs once, otherwise it runs if a prop or state has changed, in this case if the quiz or answers objects change 
+1. do not run useEffect until quiz returns 
+2. and run it again if the answers object changes 
 
 
 ## Project Challenges
