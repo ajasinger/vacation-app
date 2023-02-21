@@ -18,8 +18,10 @@ const App = () => {
   console.log({
     quiz, 
     answers,
+    travelSuggestion
   })
 
+  //to settravelSuggestion
   useEffect(() => {
     //if quiz doesn't exist, return
     if (!quiz) {
@@ -36,7 +38,39 @@ const App = () => {
       return;
     }
 
-    const scoredSuggestions = 
+    //map travelSuggestions to get individual suggestions 
+    const scoredSuggestions = quiz.travelSuggestions.map((suggestion) => {
+      //reduce suggestion.weights to an array of all keys for each suggestion, from an initial value of 0
+      //to end up with an array of all possible MC answers
+      const score = Object.keys(suggestion.weights).reduce((total, answerId) => {
+        // Object.values(answers) returns array of selected MC answers
+        // if the array of selected MC answers does not include the answerId return total
+        // total is the array of all possible MC answers
+        if (!Object.values(answers).includes(answerId)) {
+          return total;
+        }
+
+        // otherwise return total + answerId's key OR 0
+        return (
+          total + (suggestion.weights[answerId] || 0)
+        );
+      }, 0);
+
+      // scoredSuggestions returns object containing 
+      // score is the array of weights keys
+      // suggestion is an array of each individual suggestion object
+      return {
+        score,
+        suggestion
+      };
+    });
+
+    //sort scores in place 
+    const sortedSuggestions = scoredSuggestions.sort((a,b) => {
+      return b.score - a.score;
+    });
+
+    setTravelSuggestions(sortedSuggestions[0].suggestion);
 
 
   }, [
@@ -80,7 +114,6 @@ const App = () => {
           quizItem={contentItem}
         />
       ))}
-    
     </div>
     </QuizContext.Provider>
   );
