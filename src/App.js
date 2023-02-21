@@ -13,6 +13,11 @@ const App = () => {
   //set State for QuizContext
   const [answers, setAnswers] = useState({});
 
+  console.log({
+    quiz, 
+    answers,
+  })
+
 
   //async function to get json object
   const fetchData = async () => {
