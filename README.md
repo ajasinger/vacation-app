@@ -45,13 +45,13 @@ The main components are:
 
 ### QuestionsBlock
 1. Pass `props` `{quizItem}` into `QuestionsBlock` component 
-Return a <div> with an <h1> element of `{quizItem.text}` to display multiple choice question titles.
+Return a `div` with an <h1> element of `{quizItem.text}` to display multiple choice question titles.
 2. Map `quizItem.question` to display each indivdual multiple choice question in imported <QuestionBlock/>
 3. Add `key`, `question`, and `id` attributes to  <QuestionBlock/>
 
 ### QuestionBlock
 1. Pass destructured `props` `{id, question}` into `QuestionBlock` component 
-2. Return <button> element containing clickable image `{question.image}`, text `{question.text}`,and linked image credit `{question.credit}`
+2. Return `button` element containing clickable image `{question.image}`, text `{question.text}`,and linked image credit `{question.credit}`
 3. set `tabIndex` to `"-1"` in <a> element so user can't tab inside of button 
 
 ### QuizContext
@@ -83,7 +83,7 @@ Return a <div> with an <h1> element of `{quizItem.text}` to display multiple cho
 
 ### AnswerBlock
 1. Pass in `{travelSuggestion}` as `props`  
-2. Return <h1> element containing `{travelSuggestion.text}` and <img> element with `{travelSuggestion.image}`
+2. Return `h1` element containing `{travelSuggestion.text}` and <img> element with `{travelSuggestion.image}`
 
 
 ## Project Learnings
