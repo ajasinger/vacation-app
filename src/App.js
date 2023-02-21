@@ -18,6 +18,16 @@ const App = () => {
     answers,
   })
 
+  useEffect(() => {
+    //if quiz doesn't exist, return
+    if (!quiz) {
+      return;
+    }
+
+  }, [
+    quiz, answers
+  ]);
+
 
   //async function to get json object
   const fetchData = async () => {
