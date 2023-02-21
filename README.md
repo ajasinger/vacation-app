@@ -22,32 +22,28 @@ The components are:
 2. set "weights" for each answer variant (see below in Project Learnings)  
 3. import JSON objects into App.js 
 
-### setState()
-1. `import {useState, useEffect} from 'react'` into App.js so we can set initial state and `useEffect()` to render first mount to DOM and re-render when state changes. 
-2. Write async function (so we don't wait for data to load to load rest of the site - "can be executed in parallel to other code that is already running without the need to wait for other code to finish before executing") called fetchData. ("a Promise is an object that represents the eventual outcome of an asynchronous operation"). Use awaut keyword so it returns a promise.
-Once we get response we get the JSON version and store as json
-"use try/catch for error handling -- we try await-ing async function then catch any errors in try block"
+### App.js `setState()`
+1. import `useState` into App.js to set initial state and `useEffect()` to render first mount to DOM and re-render when state changes. 
+2. Write async function (that can be executed in parallel to other code that is already running) called `fetchData` using `await` keyword to return a promise.
+3. Use `try/catch` for error handling
+4. Store response as `json` variable
+5. Call `useState` which gives us an array with 2 values: a) current state b) state setter. Using array destructuring we set them to `quiz` and `setQuiz()`
+6. Call `setQuiz()` on the JSON response to override `null` (the state is initalized to `null`, when the state setter `setQuiz()` is called react uses the new value `json`)
 
-call useState() which gives us an array with two values 1. current state 2. state setter -- using array destructuring we set those to 1. Quiz 2. setQuiz
-Then call setQuiz on the JSON response 
-using setQuiz(json) to override false from useState(false) which had been set to Quiz in const [quiz, setQuiz] = useState(false); 
-ie state is initilaized to equal false, when teh state setter (setQuiz) is called react uses the new value (json)
+### Ap.js `useEffect()`
+1. Call useEffect() with 2 arguments: 
+    a) a callback function (a function passed into another function as an argument) we want react to call each time the component renders, 
+    b) a dependency array (anempty array []) so it's only called on first render unless something in the dependency array changes.
 
-### useEffect()
-call useEffect() where first argument is callback function (a function passed into another function as an argument) we want react to call each time the component renders, however  second argument of empty array [] (dependency array) means it's only called on first render unless something int eh dependaeny array changes.
-
-### App.js return statement
-1. Feed title and subtitle props into title element as JSX
-2. Map quiz.content array to render data (as contentItem) to QuestionBlocks. 
-3. Use Optional chaining — use the question mark before the period - add question mark if this thing dioesnt’ evaluate the return undefined — removes unneccsearry if statements so something happens
-3. Pass in quizItem prop to <QuestionsBlock/> element
-4. Add key to <QuestionsBlock/> element to keep track of items between renders, so mapped items remain in the same order
-5. set State to array of chosen answers 
+### App.js `return` statement
+1. Define attributes `title` and `subtitle` to <Title/> component element as JSX
+2. Use optional chaining so if `quiz` doesn't evaluate it returns undefined (see Project Learnings)
+2. Map `quiz.content` (if `quiz` exists) array to render data to <QuestionBlocks/> and define `key` and `quizItem` attributes 
+3. `key` keeps track of the order of items when mapped and between renders
 
 ### TitleBlock
-Pass props into title component 
-Destructure props
-Return a div with in h1 tag of {title} and a p tag of {subtitle} 
+1. Pass destrictured `props` of `{title, subtitle}` into Title component 
+2. Return a <div> with an <h1> element of `{title}` and a <p> elents of `{subtitle}` 
 
 ### QuestionsBlock
 Pass destructured props into QuestionsBlock component 
