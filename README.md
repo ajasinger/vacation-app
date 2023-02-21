@@ -11,7 +11,7 @@ My goal with this project was to practice building components, using props, and 
 ## App Structure & Process
 
 ### Components
-The components are: 
+The main components are: 
 1. A TitleBlock component to hold the title and subtitle
 2. A QuestionsBlock component to hold all the multiple choice questions
 3. A QuestionBlock component to hold each individual multiple choice question 
@@ -31,7 +31,7 @@ The components are:
 6. Call `setQuiz()` on the JSON response to override `null` (the state is initalized to `null`, when the state setter `setQuiz()` is called react uses the new value `json`)
 
 ### Ap.js `useEffect()`
-1. Call useEffect() with 2 arguments: 
+1. Call `useEffect()` with 2 arguments: 
     a) a callback function (a function passed into another function as an argument) we want react to call each time the component renders, 
     b) a dependency array (anempty array []) so it's only called on first render unless something in the dependency array changes.
 
@@ -42,28 +42,25 @@ The components are:
 3. `key` keeps track of the order of items when mapped and between renders
 
 ### TitleBlock
-1. Pass destrictured `props` of `{title, subtitle}` into Title component 
+1. Pass destrictured `props` of `{title, subtitle}` into `Title` component 
 2. Return a <div> with an <h1> element of `{title}` and a <p> elents of `{subtitle}` 
 
 ### QuestionsBlock
-Pass destructured props into QuestionsBlock component 
-Return a div with in h1 tag of {title} and a p tag of {subtitle} 
-Display question titles with h1 tag of {quizItem.text}
-Add id to each question text to scroll to each question
-import QuestionBlock
-Map quizItem.question to display each question option
-Add key to mapped questions 
+1. Pass `props` `{quizItem}` into `QuestionsBlock` component 
+Return a <div> with an <h1> element of `{quizItem.text}` to display multiple choice question titles.
+2. Map `quizItem.question` to display each indivdual multiple choice question in imported <QuestionBlock/>
+3. Add `key`, `question`, and `id` attributes to  <QuestionBlock/>
 
 ### QuestionBlock
-Pass destructured props into QuestionsBlock component {id, question}
-Return button containing clickable image, text,and linked image credit
-use tabIndex so user can't use tab inside of button 
+1. Pass destructured `props` `{id, question}` into `QuestionBlock` component 
+2. Return <button> element containing clickable image `{question.image}`, text `{question.text}`,and linked image credit `{question.credit}`
+3. set `tabIndex` to `"-1"` in <a> element so user can't tab inside of button 
 
-### CreateContext
-(reference https://www.w3schools.com/react/react_usecontext.asp)
-allows us to pass down and use data in any component without using props. Providing component (provider) passes variable (answers-- an empty array) down the chain so it is accessible to all children
-
-Then import QuizContext into App.js, define state {answers, setAnswers} and wrap return statement in <QuizContext.Provider> passing in props answers, setAnswers
+### QuizContext
+1. Import `{ createContext }` to `QuizContext` provider component to pass answer object (including `answers`and `setAnswers`) down the chain so it is accessible to all children
+2. Import `{ QuizContext }` into `App.js`
+3. Call `useState()` hook to set `{answers, setAnswers}`
+4. Wrap `App.js` `return` statement in <QuizContext.Provider> to pass down `answers` and `setAnswers()` as props to all children
 
 1. setAnswers is declared in QuizContext and then wraps the return statement in App.js (essentially passed as props to <QuestionBlock />
 2. What exactly is happening here? const { setAnswers } = useContext(QuizContext);
@@ -104,9 +101,9 @@ can now view JSON at http://localhost:8000/quiz
 
 I understand it should also work in the public folder, however,this isn't ideal for production builds. 
 
-### Optional chaining `(?.)`
+### Learning Optional chaining `(?.)`
 
-I initially didn't inlcude the optional chaining operator and my code was throwing errors when I tried to `.map()` `quiz` before the promise returned.
+I initially didn't include the optional chaining operator and my code was throwing errors when I tried to `.map()` `quiz` before the promise returned.
 
 I learned that I needed to specify conditional (`quiz &&`) so that it is only mapping when the quiz promise is returned from the async function. Before it returns the function will now evaluate to `undefined` instead of throwing an error. 
 
@@ -115,6 +112,8 @@ A benefit of optional chaining, is reduces the number of if statements we need.
 reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
 ### Learning CreateContext 
+(reference https://www.w3schools.com/react/react_usecontext.asp)
+allows us to pass down and use data in any component without using props. Providing component (provider) passes variable (answers-- an empty array) down the chain so it is accessible to all children
 
 ### Learning about weighted JSON objects 
 
