@@ -36,7 +36,7 @@ p {
 
 .question-title {
     width: 600px;
-    background-color: rgb(102, 69, 221);
+    background-color: rgb(255, 56, 92);
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -81,4 +81,16 @@ p {
 .question-block a {
     color: rgb(153, 153, 153);
     text-decoration: none;
+}
+
+.answer-block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.answer-block img {
+    width: 550px;
+    border-radius: 5px;
+    padding-bottom: 20px;
 }
