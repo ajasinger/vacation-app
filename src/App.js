@@ -70,7 +70,7 @@ const App = () => {
       return b.score - a.score;
     });
 
-    setTravelSuggestions(sortedSuggestions[0].suggestion);
+    setTravelSuggestion(sortedSuggestions[0].suggestion);
 
 
   }, [
@@ -114,6 +114,10 @@ const App = () => {
           quizItem={contentItem}
         />
       ))}
+      {/* if travelSuggestion is false  */}
+      {!!travelSuggestion && (
+          <AnswerBlock travelSuggestion={travelSuggestion} />
+        )}
     </div>
     </QuizContext.Provider>
   );
