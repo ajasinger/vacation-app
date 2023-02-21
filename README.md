@@ -2,34 +2,29 @@
 
 This React app is a quiz to help choose your next vacation destination. 
 
+
 ## Project Overview
 
-My goal with this project was to practice various ?? in React including components, hooks ???
+My goal with this project was to practice building components, using props, and hooks including setState() and useEffect()
 
-I installed npx create-react-app to build from and ????? from there.
 
-The ??? in wrote include: 
-
-## Key Topics
-
-## App Build Process
+## App Structure & Process
 
 ### Components
 The components are: 
-1. A title
-2. A questions component to hold all the multiple choice questions
-3. Individual multiple choice question compnents
-3. A results component 
+1. A TitleBlock component to hold the title and subtitle
+2. A QuestionsBlock component to hold all the multiple choice questions
+3. A QuestionBlock component to hold each individual multiple choice question 
+3. An AnswerBlock component to show the quiz results once all 3 questions are answered.
 
 ### JSON
-Populate JSON objects 
-
-import JSON objects into App.js (see below in issues)
+1. Populate JSON objects 
+2. set "weights" for each answer variant (see below in Project Learnings)  
+3. import JSON objects into App.js 
 
 ### setState()
-import {useState, useEffect} from 'react' into App.js so we can set initial state and useEffect to render first mount tot DOM and re-render when state changes 
-
-write async function (so we don't wait for data to load to load rest of the site - "can be executed in parallel to other code that is already running without the need to wait for other code to finish before executing") called fetchData. ("a Promise is an object that represents the eventual outcome of an asynchronous operation"). Use awaut keyword so it returns a promise.
+1. `import {useState, useEffect} from 'react'` into App.js so we can set initial state and `useEffect()` to render first mount to DOM and re-render when state changes. 
+2. Write async function (so we don't wait for data to load to load rest of the site - "can be executed in parallel to other code that is already running without the need to wait for other code to finish before executing") called fetchData. ("a Promise is an object that represents the eventual outcome of an asynchronous operation"). Use awaut keyword so it returns a promise.
 Once we get response we get the JSON version and store as json
 "use try/catch for error handling -- we try await-ing async function then catch any errors in try block"
 
@@ -97,46 +92,31 @@ useEffect hook defines what a component needs to do after render. Second argumen
 
 ### AnswerBlock
 
+in app.js  if travelSuggestion is false (no travelSuggestion set) don't show AnswerBlock 
 
-## Project Challenges
 
-A few challenges I faced were: 
-
-### `export function`
-
-I initally exported my functions using 
-`export const QuestionsBlock = () => {
-}`
-but learned the the it must be exported as a defualt function.
-
+## Project Learnings
 
 ### importing JSON objects into App.js
 
-This was new for me so I had to do some research. I had prevously placed it int eh src folder but now know this is not best practice becasue ???? I learned two ways to do this: 
+This was my first experience with importing a JSON file into App.js. Here's how I did it: 
 
 add script to pakcage.json "start:backend": "npx json-server --watch db.json --port 8000" then run command $npm i json-server
 put JSON object as value on new object with teh key: "quiz"
 run command $npm run start:backend
 can now view JSON at http://localhost:8000/quiz
 
-### App.js useState() hook
-used null instead of false -- why didn't this work?
-const [quiz, setQuiz] = useState(false);
+I understand it should also work in the public folder, however,this isn't ideal for production builds. 
 
-### `mapping quiz.content`
+### Optional chaining `(?.)`
 
-{/* map quiz content to populate QuestionsBlock */}
-      {quiz.content.map(contentItem => 
-        <QuestionsBlock quizItem={contentItem}/>
-        )}
-thought I needed to separate out each item???
+I initially didn't inlcude the optional chaining operator and my code was throwing errors when I tried to `.map()` `quiz` before the promise returned.
 
-ALSO 
+I learned that I needed to specify conditional (`quiz &&`) so that it is only mapping when the quiz promise is returned from the async function. Before it returns the function will now evaluate to `undefined` instead of throwing an error. 
 
-{quiz && quiz.content.map(contentItem => {
-        <QuestionsBlock quizItem={contentItem}/>
-      })}
-needed to specify conditional (`quiz &&`) so that it is only maping when quiz exists (when promise is returned from async function so quiz is no longer false)
+A benefit of optional chaining, is reduces the number of if statements we need. 
+
+reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
 ### Learning CreateContext 
 
@@ -146,7 +126,8 @@ needed to specify conditional (`quiz &&`) so that it is only maping when quiz ex
 
 
 ## What's Next
-make site responsive 
-images responsive
+1. Make site responsive 
+2. Disable question after selection
+3. Additional styling
 
 
