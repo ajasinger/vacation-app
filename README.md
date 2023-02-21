@@ -68,7 +68,7 @@ Return a <div> with an <h1> element of `{quizItem.text}` to display multiple cho
 3. `onClick` `setAnswers()` is called and the new answer is added to existing `answers` object with an id
 ### Part 3 - App.js `useEffect()`
 1. `answers` is passed to `App.js` by `QuizContext` for use in the `useEffect()` hook 
-2. Call `useEffect()` hook to `setTravelSuggestion` adn re-run when values in `quiz` or `answers` objects change
+2. Call `useEffect()` hook to `setTravelSuggestion` and re-run when values in `quiz` or `answers` objects change
 
 ?????
 
