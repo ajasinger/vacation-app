@@ -1,10 +1,8 @@
 # Vacation Quiz App
-
 This React app is a quiz to help choose your next vacation destination. 
 
 
 ## Project Overview
-
 My goal with this project was to practice building components, using props, and hooks including setState() and useEffect()
 
 
@@ -33,7 +31,7 @@ The main components are:
 ### App.js `useEffect()`
 1. Call `useEffect()` with 2 arguments: 
     a) a callback function (a function passed into another function as an argument) we want react to call each time the component renders, 
-    b) a dependency array (anempty array []) so it's only called on first render unless something in the dependency array changes.
+    b) a dependency array (an empty array []) so it's only called on first render unless something in the dependency array changes.
 
 ### App.js `return` statement
 1. Define attributes `title` and `subtitle` to <Title/> component element as JSX
@@ -58,73 +56,63 @@ Return a <div> with an <h1> element of `{quizItem.text}` to display multiple cho
 
 ### QuizContext
 #### Part 1 - App.js
-1. Import `{ createContext }` to `QuizContext` provider component to pass answer object (including `answers`and `setAnswers`) down the chain so it is accessible to all children
+1. Import `{ createContext }` to `QuizContext` provider component to pass answer object (including `answers`and `setAnswers`) down the chain so it is accessible to all children (see Project Learnings)
 2. Import `{ QuizContext }` into `App.js`
 3. Call `useState()` hook to set `{answers, setAnswers}`
 4. Wrap `App.js` `return` statement in <QuizContext.Provider> to pass down `answers` and `setAnswers()` as props to all children
 #### Part 2 - QuestionBlock.js
 1. Import `{ QuizContext }` into `QuestionBlock.jsx` to pass in `setAnswers` for `onClick` attribute
-2. Destructure `QuizContext` with `useEffect()` hook (`useContext()`) to pull out `setAnswers()`
+2. Destructure `QuizContext` by calling `useContext()` hook inside the QuestionBlock component to pull out `setAnswers()`
 3. `onClick` `setAnswers()` is called and the new answer is added to existing `answers` object with an id
 ### Part 3 - App.js `useEffect()`
 1. `answers` is passed to `App.js` by `QuizContext` for use in the `useEffect()` hook 
-2. Call `useEffect()` hook to `setTravelSuggestion` and re-run when values in `quiz` or `answers` objects change
-
-?????
-
+2. Call `useEffect()` hook and re-run when values in `quiz` or `answers` objects change
 3. If `quiz` does not exist, return
 4. Once `quiz` exists 
-
-
-### useEffect() hook in App.js
-
-3. set variables to see when all 3 multiple choice questions have been answered:  
-//map content array for id's
-    const questionIds = quiz.content.map((item) => item.id);
-    //Object.keys converts answers object to an array
-    //if length is greater than or equal to questionIds length set 
-    const hasCompleted = Object.keys(answers).length >= questionIds.length;
-4. Now that we have confrimed all answers are in the object we can calculate weighted answers to return final travel recommendation
-5. //set State for scoredSuggestions
-  const [travelSuggestion, setTravelSuggestion] = useState(null);
-6. Add weights to JSON to dteremine answer in scalable way (instead of listing 60 combinations)
-7. ......
+5. Map `quiz.content` to get `item.id`'s
+6. Use `Object.keys()` to convert `answers` object to an array and get length. If it is greater than or equal to `questionIds` then `hasCompleted = true`
+7. Once `hasCompleted = true` compute a numeric score for each travel suggestion based on the quiz responses. (see Project Learnings)
+8. Call `useState()` hook to set `{travelSuggestions, setTravelSuggestions}` with an initial value of `null`
+9. Map `quiz.travelSuggestions` and `reduce` `suggestions.weights` to get `answerId`
+10. If the `answers` array includes the `answerId` `return total`
+11. `scoredSuggestions` returns object containing numerical `score` and `suggestion` object
+12. `sort` `scoredSuggestions` to determine top ranking `suggestion` 
+13. call `setTravelSuggestion()` with top ranking suggestion in array
+14. Add <AnswerBlock/> component element to return statement including attribute `travelSuggestion`
+15. Display answer block only if `travelSuggestion` evaluates to `true`
 
 ### AnswerBlock
-
-in app.js  if travelSuggestion is false (no travelSuggestion set) don't show AnswerBlock 
+1. Pass in `{travelSuggestion}` as `props`  
+2. Return <h1> element containing `{travelSuggestion.text}` and <img> element with `{travelSuggestion.image}`
 
 
 ## Project Learnings
 
 ### Importing JSON objects into App.js
-
 This was my first experience with importing a JSON file into App.js. Here's how I did it: 
+1. Add script to package.json `"start:backend": "npx json-server --watch db.json --port 8000"` 
+2. Run command `$npm i json-server`
+3. Wrap JSON object to make it a `value` to the `key` `"quiz"`
+4. Run command `$npm run start:backend`
+5. View JSON at http://localhost:8000/quiz 
 
-add script to pakcage.json "start:backend": "npx json-server --watch db.json --port 8000" then run command $npm i json-server
-put JSON object as value on new object with teh key: "quiz"
-run command $npm run start:backend
-can now view JSON at http://localhost:8000/quiz
+### Optional Chaining `(?.)`
+I initially didn't include the optional chaining operator and my code was throwing errors when I tried to `.map()` `quiz` before the promise returned. I learned that I needed to specify that `quiz` had returned using optional chaining `quiz?.` so that it only maps when the `quiz` promise is returned from the async function. Until it returns the function will now evaluate to `undefined` instead of throwing an error. 
 
-I understand it should also work in the public folder, however,this isn't ideal for production builds. 
+A benefit of optional chaining is that is reduces the number of `if` statements we need. 
 
-### Learning Optional Chaining `(?.)`
+reference: 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
-I initially didn't include the optional chaining operator and my code was throwing errors when I tried to `.map()` `quiz` before the promise returned.
+### `CreateContext` 
+I learned of `CreateContext` because I wanted to find a scalable solution to passing down data to a number of components. `CreateContext` allows us to pass down and use data in any component without using props. The providing component (called the `Provider`), in this case `QuizContext` passes variable down the chain so it is accessible to all children. This was useful as a number of components needed to access the `answers` object.
 
-I learned that I needed to specify conditional (`quiz &&`) so that it is only mapping when the quiz promise is returned from the async function. Before it returns the function will now evaluate to `undefined` instead of throwing an error. 
+references: 
+https://beta.reactjs.org/learn/passing-data-deeply-with-context
+https://www.w3schools.com/react/react_usecontext.asp
 
-A benefit of optional chaining, is reduces the number of if statements we need. 
-
-reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-
-### Learning `CreateContext` 
-(reference https://www.w3schools.com/react/react_usecontext.asp)
-allows us to pass down and use data in any component without using props. Providing component (provider) passes variable (answers-- an empty array) down the chain so it is accessible to all children
-
-### Learning about weighted JSON objects 
-
-## Conclusion ???
+### Weighted JSON objects 
+I was looking for a scalable alternative to creating 60 separate `travelSuggestions` objects. I had considered setting a few combinations and then running a JavaScript to randomize the remaining suggestions, however, this wouldn't be an appropriate appraoch for a production-level app. Then I learned that if I gave each `suggestion` a key of `"weights"` whose value is an object containing `key: value` pairs assigning a numerical value to each potential answer, I could calculate the appropriate `suggestion` based on the score of the `answers` array.
 
 
 ## What's Next
