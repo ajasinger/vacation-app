@@ -18,51 +18,41 @@ const App = () => {
     travelSuggestion
   })
 
-  //to settravelSuggestion
   useEffect(() => {
-    //if quiz doesn't exist, return
     if (!quiz) {
       return;
     }
 
-    //map content array for id's
+    //compare length of arrays to determine if all questions have been answered
     const questionIds = quiz.content.map((item) => item.id);
-    //Object.keys converts answers object to an array
-    //if length is greater than or equal to questionIds length set 
     const hasCompleted = Object.keys(answers).length >= questionIds.length;
 
     if (!hasCompleted) {
       return;
     }
 
-    //map travelSuggestions to get individual suggestions 
+    //Compute a numeric score for each travel suggestion based on the quiz responses. 
+    //Sum the weights of each travel suggestion based on which were answered in the quiz. 
+    //Sort the travel suggestions based on score, and pick the highest score.
     const scoredSuggestions = quiz.travelSuggestions.map((suggestion) => {
-      //reduce suggestion.weights to an array of all keys for each suggestion, from an initial value of 0
-      //to end up with an array of all possible MC answers
       const score = Object.keys(suggestion.weights).reduce((total, answerId) => {
-        // Object.values(answers) returns array of selected MC answers
-        // if the array of selected MC answers does not include the answerId return total
-        // total is the array of all possible MC answers
         if (!Object.values(answers).includes(answerId)) {
           return total;
         }
 
-        // otherwise return total + answerId's key OR 0
+      
         return (
           total + (suggestion.weights[answerId] || 0)
         );
       }, 0);
 
-      // scoredSuggestions returns object containing 
-      // score is the array of weights keys
-      // suggestion is an array of each individual suggestion object
       return {
         score,
         suggestion
       };
     });
 
-    //sort scores in place 
+    //sort scores to calculate top score
     const sortedSuggestions = scoredSuggestions.sort((a,b) => {
       return b.score - a.score;
     });
