@@ -10,7 +10,6 @@ const App = () => {
 
   const [quiz, setQuiz] = useState(null);
   const [answers, setAnswers] = useState({});
-  //set State for scoredSuggestions
   const [travelSuggestion, setTravelSuggestion] = useState(null);
 
   console.log({
