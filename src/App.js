@@ -24,6 +24,13 @@ const App = () => {
       return;
     }
 
+    //map content array for id's
+    const questionIds = quiz.content.map((item) => item.id);
+    //Object.keys converts answers object to an array
+    //if length is greater than or equal to questionIds length set 
+    const hasCompleted = Object.keys(answers).length >= questionIds.length;
+
+
   }, [
     quiz, answers
   ]);
