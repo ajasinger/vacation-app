@@ -94,41 +94,111 @@
                 ]
             }
         ],
-        "answers": [
+        "travelSuggestions": [
             {
                 "combination": ["The city", "Pizza", "Wine tasting"],
                 "text": "New York",
                 "image": "https://images.unsplash.com/photo-1522083165195-3424ed129620?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmV3JTIweW9ya3xlbnwwfDB8MHx8&auto=format&fit=crop&w=700&q=60",
                 "alt": "A bridge and the New York skyline",
-                "credit": "Colton Duke"
+                "credit": "Colton Duke",
+                "weights": {
+                    "The beach": 0,
+                    "The mountains": -1,
+                    "The city": 1,
+                    "The desert": -1,
+                    "Pasta": 1,
+                    "Sushi": 1,
+                    "BBQ": 0,
+                    "Pizza": 1,
+                    "Hiking": 0,
+                    "At museums": 1,
+                    "Wine tasting": 0,
+                    "Adventure-seeking": -1
+                }
             },
             {
                 "combination": ["The beach", "BBQ", "Adventure-seeking"],
                 "text": "Rio De Janeiro",
                 "image": "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmlvJTIwZGUlMjBqYW5laXJvfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
                 "alt": "Aerial view of Rio De Janeiro",
-                "credit": "Raphael Nogueira"
+                "credit": "Raphael Nogueira",
+                "weights": {
+                    "The beach": 1,
+                    "The mountains": 0,
+                    "The city": 1,
+                    "The desert": -1,
+                    "Pasta": 1,
+                    "Sushi": 0,
+                    "BBQ": 1,
+                    "Pizza": 0,
+                    "Hiking": 0,
+                    "At museums": 1,
+                    "Wine tasting": 0,
+                    "Adventure-seeking": 1
+                }
             },
             {
                 "combination": ["The mountiains", "Sushi", "Adventure-seeking"],
                 "text": "Aspen",
                 "image": "https://images.unsplash.com/photo-1614444894791-c0c4d4286c35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXNwZW58ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
                 "alt": "A chairlift on a snowy mountain",
-                "credit": "Chase Baker"
+                "credit": "Chase Baker",
+                "weights": {
+                    "The beach": -1,
+                    "The mountains": 1,
+                    "The city": 0,
+                    "The desert": -1,
+                    "Pasta": 0,
+                    "Sushi": 0,
+                    "BBQ": 0,
+                    "Pizza": 0,
+                    "Hiking": 1,
+                    "At museums": 0,
+                    "Wine tasting": 0,
+                    "Adventure-seeking": 1
+                }
             },
             {
                 "combination": ["The city", "Sushi", "Wine tasting"],
                 "text": "Tokyo",
                 "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
                 "alt": "A street in Tokyo with neon lights",
-                "credit": "Jezael Melgoza"
+                "credit": "Jezael Melgoza",
+                "weights": {
+                    "The beach": 0,
+                    "The mountains": 1,
+                    "The city": 1,
+                    "The desert": -1,
+                    "Pasta": 0,
+                    "Sushi": 1,
+                    "BBQ": 0,
+                    "Pizza": 1,
+                    "Hiking": 1,
+                    "At museums": 1,
+                    "Wine tasting": 0,
+                    "Adventure-seeking": 0
+                }
             },
             {
                 "combination": ["The desert", "BBQ", "Adventure-seeking"],
                 "text": "Grand Canyon",
                 "image": "https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3JhbmQlMjBjYW55b258ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
                 "alt": "Monument Valley",
-                "credit": "Ganapathy Kumar"
+                "credit": "Ganapathy Kumar",
+                "weights": {
+                    "The beach": -1,
+                    "The mountains": 1,
+                    "The city": 0,
+                    "The desert": 1,
+                    "Pasta": 0,
+                    "Sushi": 0,
+                    "BBQ": 1,
+                    "Pizza": 0,
+                    "Hiking": 1,
+                    "At museums": 0,
+                    "Wine tasting": 0,
+                    "Adventure-seeking": 1
+                }
             }
         ]
     }
