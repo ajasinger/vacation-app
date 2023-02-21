@@ -34,9 +34,9 @@ The main components are:
     b) a dependency array (an empty array []) so it's only called on first render unless something in the dependency array changes.
 
 ### App.js `return` statement
-1. Define attributes `title` and `subtitle` to <Title/> component element as JSX
+1. Define attributes `title` and `subtitle` to `<Title/>` component element as JSX
 2. Use optional chaining so if `quiz` doesn't evaluate it returns undefined (see Project Learnings)
-2. Map `quiz.content` (if `quiz` exists) array to render data to <QuestionBlocks/> and define `key` and `quizItem` attributes 
+2. Map `quiz.content` (if `quiz` exists) array to render data to `<QuestionBlocks/>` and define `key` and `quizItem` attributes 
 3. `key` keeps track of the order of items when mapped and between renders
 
 ### TitleBlock
@@ -46,8 +46,8 @@ The main components are:
 ### QuestionsBlock
 1. Pass `props` `{quizItem}` into `QuestionsBlock` component 
 Return a `div` with an `h1` element of `{quizItem.text}` to display multiple choice question titles.
-2. Map `quizItem.question` to display each indivdual multiple choice question in imported <QuestionBlock/>
-3. Add `key`, `question`, and `id` attributes to  <QuestionBlock/>
+2. Map `quizItem.question` to display each indivdual multiple choice question in imported `<QuestionBlock/>`
+3. Add `key`, `question`, and `id` attributes to  `<QuestionBlock/>`
 
 ### QuestionBlock
 1. Pass destructured `props` `{id, question}` into `QuestionBlock` component 
@@ -59,7 +59,7 @@ Return a `div` with an `h1` element of `{quizItem.text}` to display multiple cho
 1. Import `{ createContext }` to `QuizContext` provider component to pass answer object (including `answers`and `setAnswers`) down the chain so it is accessible to all children (see Project Learnings)
 2. Import `{ QuizContext }` into `App.js`
 3. Call `useState()` hook to set `{answers, setAnswers}`
-4. Wrap `App.js` `return` statement in <QuizContext.Provider> to pass down `answers` and `setAnswers()` as props to all children
+4. Wrap `App.js` `return` statement in `<QuizContext.Provider>` to pass down `answers` and `setAnswers()` as props to all children
 #### Part 2 - QuestionBlock.js
 1. Import `{ QuizContext }` into `QuestionBlock.jsx` to pass in `setAnswers` for `onClick` attribute
 2. Destructure `QuizContext` by calling `useContext()` hook inside the QuestionBlock component to pull out `setAnswers()`
@@ -78,7 +78,7 @@ Return a `div` with an `h1` element of `{quizItem.text}` to display multiple cho
 11. `scoredSuggestions` returns object containing numerical `score` and `suggestion` object
 12. `sort` `scoredSuggestions` to determine top ranking `suggestion` 
 13. call `setTravelSuggestion()` with top ranking suggestion in array
-14. Add <AnswerBlock/> component element to return statement including attribute `travelSuggestion`
+14. Add `<AnswerBlock/>` component element to return statement including attribute `travelSuggestion`
 15. Display answer block only if `travelSuggestion` evaluates to `true`
 
 ### AnswerBlock
