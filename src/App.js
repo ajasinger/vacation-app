@@ -114,7 +114,7 @@ const App = () => {
           quizItem={contentItem}
         />
       ))}
-      {/* if travelSuggestion is false  */}
+      {/* if travelSuggestion is false (no travelSuggestion set) don't show AnswerBlock  */}
       {!!travelSuggestion && (
           <AnswerBlock travelSuggestion={travelSuggestion} />
         )}
