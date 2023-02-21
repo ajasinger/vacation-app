@@ -9,7 +9,6 @@ import QuizContext from './QuizContext';
 const App = () => {
 
   const [quiz, setQuiz] = useState(null);
-  //set State for QuizContext
   const [answers, setAnswers] = useState({});
   //set State for scoredSuggestions
   const [travelSuggestion, setTravelSuggestion] = useState(null);
@@ -97,7 +96,7 @@ const App = () => {
   //console.log(quiz);
 
   return (
-    //wrap return in QuizContext component so all children have access to answer object
+    //wrap return statement in QuizContext component 
     <QuizContext.Provider value={{ answers, setAnswers }}>
       <div className="app">
       
