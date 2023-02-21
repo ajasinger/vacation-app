@@ -12,7 +12,7 @@ const App = () => {
   const [quiz, setQuiz] = useState(null);
   //set State for QuizContext
   const [answers, setAnswers] = useState({});
-  //set State for sortedSuggestions
+  //set State for scoredSuggestions
   const [travelSuggestion, setTravelSuggestion] = useState(null);
 
   console.log({
