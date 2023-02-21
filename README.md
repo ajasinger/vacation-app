@@ -83,6 +83,19 @@ Then import QuizContext into App.js, define state {answers, setAnswers} and wrap
 useEffect hook defines what a component needs to do after render. Second argument of array measn it only carries out that action if a prop or state has changed. Empty array means it only runs once, otherwise it runs if a prop or state has changed, in this case if the quiz or answers objects change 
 1. do not run useEffect until quiz returns 
 2. and run it again if the answers object changes 
+3. set variables to see when all 3 multiple choice questions have been answered:  
+//map content array for id's
+    const questionIds = quiz.content.map((item) => item.id);
+    //Object.keys converts answers object to an array
+    //if length is greater than or equal to questionIds length set 
+    const hasCompleted = Object.keys(answers).length >= questionIds.length;
+4. Now that we have confrimed all answers are in the object we can calculate weighted answers to return final travel recommendation
+5. //set State for scoredSuggestions
+  const [travelSuggestion, setTravelSuggestion] = useState(null);
+6. Add weights to JSON to dteremine answer in scalable way (instead of listing 60 combinations)
+7. ......
+
+### AnswerBlock
 
 
 ## Project Challenges
