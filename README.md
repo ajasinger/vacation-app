@@ -74,6 +74,14 @@ allows us to pass down and use data in any component without using props. Provid
 
 Then import QuizContext into App.js, define state {answers, setAnswers} and wrap return statement in <QuizContext.Provider> passing in props answers, setAnswers
 
+1. setAnswers is declared in QuizContext and then wraps the return statement in App.js (essentially passed as props to <QuestionBlock />
+2. What exactly is happening here? const { setAnswers } = useContext(QuizContext);
+3. Then onClick setAnswers() is called and the new answer is added to existing answers object with an id
+4. Then answers is passed to App.js by QuizContext for use in the useEffect hook 
+
+### useEffect() hook in App.js
+useEffect hook defines what a component needs to do after render. Second argument of array measn it only carries out that action if a prop or state has changed. Empty array means it only runs once, otherwise it runs if a prop or state has changed, in this case if the quiz or answers objects change 
+
 
 ## Project Challenges
 
@@ -114,6 +122,10 @@ ALSO
         <QuestionsBlock quizItem={contentItem}/>
       })}
 needed to specify conditional (`quiz &&`) so that it is only maping when quiz exists (when promise is returned from async function so quiz is no longer false)
+
+### Learning CreateContext 
+
+### Learning about weighted JSON objects 
 
 ## Conclusion ???
 
