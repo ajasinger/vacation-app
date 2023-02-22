@@ -1,11 +1,11 @@
 {
     "quiz": {
-        "title" : "Where should you go on vacation?",
-        "subtitle": "Need some inspiration for your next trip? Our quiz can help!",
+        "title" : "Pick Your Next Trip",
+        "subtitle": "Need some inspiration for your next trip? Our quiz can help.",
         "content" : [
             {
                 "id": 0,
-                "text": "Pick your favorite type of location:",
+                "text": "Your favorite place to be is:",
                 "questions": [
                     { 
                         "text": "The beach",
@@ -35,7 +35,7 @@
             },
             {
                 "id": 1,
-                "text": "Pick your favorite meal:",
+                "text": "Your favorite meal is:",
                 "questions": [
                     { 
                         "text": "Pasta",
