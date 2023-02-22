@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     line-height: 1.05;
     text-align: center;
 }
@@ -36,6 +36,7 @@ p {
 
 .title {
     text-align: center;
+    padding-bottom: 15px;
 }
 
 .question-title {
@@ -45,15 +46,15 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 210px;
+    height: 100px;
     color: white;
+    margin-top: 50px;
 }
 
 .questions-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 16px 0 23px 0;
 }
 
 .question-block {
@@ -90,10 +91,18 @@ p {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+.answer-block h1 {
+    border-bottom: 5px solid rgb(255, 56, 92);
+    padding-bottom: 6px;
+    text-transform: uppercase;
 }
 
 .answer-block img {
     width: 550px;
+    height: auto;
     border-radius: 5px;
-    padding-bottom: 20px;
+    overflow: hidden;
 }
